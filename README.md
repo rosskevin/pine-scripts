@@ -14,6 +14,13 @@ There are two types of scripts
       - strategy.order
 
 Goals 
+- One goal is to draw top-of-value bottom-of-value virgin-points-of-control on any chart.
+  - One order to do that we need to know what the units of the chart are.
+    - Calculating tov/bot/vpoc will be better performed on a 15minute unit chart calculated by the day.
+  - Can pine scripts know the price volume distribution? 
+    - Not currently. [https://getsatisfaction.com/tradingview/topics/volume-profile-values-in-pine-script](https://getsatisfaction.com/tradingview/topics/volume-profile-values-in-pine-script)
 
-
+- One goal is to calculate the "saucy" moment, as I'll describe herein and hopefully scribe into PineScript.
+  - Daily is the most important unit for secret sauce moments.
+  - The saucy moment is when the a stock which has broken out and is trading above the rising 50/150/200 has a bullback to the point where it grazes the rising 50.
 

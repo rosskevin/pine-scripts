@@ -6,7 +6,7 @@ There are two types of scripts
 - Indicator Scripts
     - A standard pine script is an indicator. Use it to read the a series {open, high, low, close, volume} which can be accessed by subscript [] in reverse chronological order from the present.
     
-Strategy Scripts
+- Strategy Scripts
     - A strategy is a study that can send, modify and cancel orders (to buy/sell). Strategies allow you to perform backtesting (emulation of strategy trading on historical data) and forwardtesting (emulation of strategy trading on real-time data) according to your precoded algorithms.
       - When you write a strategy code, it should start with the keyword “strategy”, not “study”. 
       - strategy.entry

@@ -23,8 +23,8 @@ Coinbase BTCUSD for it's alpha measure for stocks and crypto respectively.
 This is a set of moving averages. In a weekly chart, it's the 10, 30, and 40 period moving averages.  
 In all other interval sizes it's the 50, 150, and 200 period moving averages.  
 It includes volume adjusted lines as well as an Average True Range indciated around the shortest interval moving average in the chart.  
-** Daily **  
+Daily  
 ![](images/moving-average-daily.png)
-** Weekly **  
+Weekly  
 ![](images/moving-average-weekly.png)
 

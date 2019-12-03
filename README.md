@@ -1,7 +1,8 @@
-Porting Stan Weinstein to Tradingview.com PineScript
+Stan Weinstein Stage Analysis in Tradingview.com PineScript
 
 This repo contains four PineScript indicators helpful for implementing Stage
-Analysis as described by Stan Weinstein in his seminal guide on trend trading. 
+Analysis as described by Stan Weinstein in his [seminal guide on trend
+trading.](https://www.amazon.com/Stan-Weinsteins-Secrets-Profiting-Markets/dp/1556236832/)   
 
 **`nasdaq.pine`**  
 Nasdaq 30 Week Moving Average Of The Advance Decline Ratio  

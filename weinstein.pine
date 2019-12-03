@@ -1,0 +1,18 @@
+//@version=4
+study("Weinstein MAs", overlay=true)
+i = timeframe.isweekly ? 10 : 50
+i3 = i * 3
+i4 = i * 4
+p1 = plot(series=sma(ohlc4, i), style=plot.style_stepline, linewidth=2, color=color.new(#75ff9a, 0))
+plot(series=vwma(ohlc4, i), style=plot.style_stepline, linewidth=2, color=color.new(#087525, 25))
+plot(series=sma(ohlc4, i3), style=plot.style_stepline, linewidth=2, color=color.new(color.yellow, 0))
+plot(series=vwma(ohlc4, i3), style=plot.style_stepline, linewidth=1, color=color.new(color.yellow, 25))
+plot(series=sma(ohlc4, i4), style=plot.style_stepline, linewidth=2, color=color.new(#f02222, 0))
+plot(series=vwma(ohlc4, i4), style=plot.style_stepline, linewidth=1, color=color.new(#f02222, 25))
+smaMove50 = sma(high-low, i)
+xUpper = sma(close, i) + smaMove50
+xLower = sma(close, i) - smaMove50
+smaClose50XUpperPlot = plot(series=xUpper, color=color.new(color.blue, 40), style=plot.style_stepline)
+smaClose50XLowerPlot = plot(series=xLower, color=color.new(color.blue, 40), style=plot.style_stepline)
+fill(plot1=p1, plot2=smaClose50XUpperPlot, color=color.new(#3dae57, 80))
+fill(plot1=p1, plot2=smaClose50XLowerPlot, color=color.new(#3dae57, 80))

@@ -1,0 +1,18 @@
+//@version=4
+study("Mansfield Relative Strength", overlay=false)
+zeroline = plot(0, color=#FFFFFF)
+target_period = timeframe.period
+index = 
+ (syminfo.prefix == "NASDAQ") ?     security("NASDAQ:IXIC",     "D", close) :
+ (syminfo.prefix == "NYSE") ?       security("NYSE:NYA",        "D", close) :
+ (syminfo.prefix == "AMEX") ?       security("NYSE:XMI",        "D", close) : 
+ (syminfo.prefix == "BITSTAMP") ?   security("BITSTAMP:BTCUSD", "D", close) : 
+ (syminfo.prefix == "BITTREX") ?    security("COINBASE:BTCUSD", "D", close) : 
+ (syminfo.prefix == "BINANCE") ?    security("COINBASE:BTCUSD", "D", close) : 
+ (syminfo.prefix == "KRAKEN") ?     security("COINBASE:BTCUSD", "D", close) :
+ (syminfo.prefix == "BITFINEX") ?   security("COINBASE:BTCUSD", "D", close) : 
+ (syminfo.prefix == "COINBASE") ?   security("COINBASE:BTCUSD", "D", close) : na
+rsd = (close / index) * 100
+rsm = (rsd/sma(rsd, 50) - 1) * 100
+plot(rsm)
+// plot(hline(0))

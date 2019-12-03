@@ -1,0 +1,22 @@
+//@version=4
+study("NDAQ Daily AD - 30W MA")
+zeroline = plot(0, color=#FFFFFF)
+nasd50 = sma(security("INDEX:ADDQ", "W", close), 30)
+nasd50PlotValue = (dayofweek == dayofweek.monday) ? nasd50 : 
+ (dayofweek == dayofweek.tuesday) ? nasd50 :
+ (dayofweek == dayofweek.wednesday) ? nasd50 :
+ (dayofweek == dayofweek.thursday) ? nasd50 :
+ (dayofweek == dayofweek.friday) ? nasd50 : 0
+plotColor = (nasd50PlotValue > 0) ? #008447 : #ef242e
+nasd50curve = plot(series=nasd50PlotValue, title="NASDAQ50A/D", style=2, linewidth=2, color=#FFFFFF)
+fill(nasd50curve, zeroline, plotColor, transp=50)
+nasd_new_high = security("USI:YRHI.NQ", "D", close)
+nasd_new_low = security("USI:YRLO.NQ", "D", close)
+nasdPlotValue = (dayofweek == dayofweek.monday) ? nasd_new_high-nasd_new_low : 
+ (dayofweek == dayofweek.tuesday) ? nasd_new_high-nasd_new_low :
+ (dayofweek == dayofweek.wednesday) ? nasd_new_high-nasd_new_low :
+ (dayofweek == dayofweek.thursday) ? nasd_new_high-nasd_new_low :
+ (dayofweek == dayofweek.friday) ? nasd_new_high-nasd_new_low : 0
+plot(nasdPlotValue, style=5, linewidth=1, color=#fddd13)
+
+

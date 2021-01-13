@@ -1,9 +1,12 @@
 # Stage Analysis In PineScript
 
-### The majority of the code here is a component-by-component 
-### implementation of the charting principles outlined by
-### Stan Weinstein in his 1988 book Secrets for Profiting in Bull and Bear
-### Markets Copyright McGraw-Hill
+The majority of the code here is a component-by-component 
+implementation of the charting principles outlined by
+Stan Weinstein in his 1988 book [Secrets for Profiting in Bull and Bear
+Markets](https://www.amazon.com/Stan-Weinsteins-Secrets-Profiting-Markets/dp/1556236832/)   
+  
+
+That book and it's concepts are Copyright McGraw-Hill 1988.
 
 Stage Analysis is a conceptual framework which posits all charts go through four stages. 
 Stage 1 is the basing period, stage 2 is the break-out period of rising prices, stage 3 is the topping
@@ -15,7 +18,6 @@ Mansfield no longer prints charts. This code attempts to accurately redraw
 Mansfield charts in Pine Script - the charting language for TradingView.com
 
 Purchase Weinstein's only book ever written here:
-[seminal guide on trend trading.](https://www.amazon.com/Stan-Weinsteins-Secrets-Profiting-Markets/dp/1556236832/)   
 
 **`nasdaq.pine`**  
 Nasdaq 30 Week Moving Average Of The Advance Decline Ratio  

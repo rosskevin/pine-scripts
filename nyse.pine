@@ -1,12 +1,15 @@
 //@version=4
-study("NYSE Daily AD - 30W MA")
+study("NYSE")
+ma_interval = timeframe.isweekly ? 10 : 50
 zeroline = plot(0, color=#FFFFFF)
-nyse50 = sma(security("INDEX:ADDN", "W", close), 30)
+tick_interval = "W"
+period = timeframe.isweekly ? "W" : "D"
+nyse50 = sma(security("USI:ADD", period, close), ma_interval)
 nyse50PlotValue = (dayofweek == dayofweek.monday) ? nyse50 : 
  (dayofweek == dayofweek.tuesday) ? nyse50 :
  (dayofweek == dayofweek.wednesday) ? nyse50 :
  (dayofweek == dayofweek.thursday) ? nyse50 :
- (dayofweek == dayofweek.friday) ? nyse50 : 0
+ (dayofweek == dayofweek.friday) ? nyse50 : na
 plotColor = (nyse50PlotValue > 0) ? #008447 : #ef242e
 nyse50curve = plot(series=nyse50PlotValue, title="NYSE50", style=2, linewidth=1, color=#b2eff6)
 fill(nyse50curve, zeroline, plotColor, transp=40)
@@ -16,5 +19,5 @@ nysePlotValue = (dayofweek == dayofweek.monday) ? nyse_new_high-nyse_new_low :
  (dayofweek == dayofweek.tuesday) ? nyse_new_high-nyse_new_low :
  (dayofweek == dayofweek.wednesday) ? nyse_new_high-nyse_new_low :
  (dayofweek == dayofweek.thursday) ? nyse_new_high-nyse_new_low :
- (dayofweek == dayofweek.friday) ? nyse_new_high-nyse_new_low : 0
+ (dayofweek == dayofweek.friday) ? nyse_new_high-nyse_new_low : na
 plot(nysePlotValue, style=5, linewidth=1, color=#fddd13)

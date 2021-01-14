@@ -43,14 +43,4 @@ Daily
 ![](images/moving-average-daily.png)
 Weekly  
 ![](images/moving-average-weekly.png)
-:q
-i
-
-Is it subdividable?
-What type of stream resitrctions are there ifa ny, how is stream categorized?
-My stream is a trout stream, restricted significantly
-Taxes, parcel viewer, history of lot sales, fair market value of a lot comes
-down to the supply and demand situation is, and is it over the past 6 months
-
-Look up each of the other 3 and what theyre assessed, does assessed value match?
 

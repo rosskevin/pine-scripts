@@ -8,6 +8,9 @@ Markets](https://www.amazon.com/Stan-Weinsteins-Secrets-Profiting-Markets/dp/155
 
 That book and it's concepts are Copyright McGraw-Hill 1988.
 
+This code is Copyright Sheldon Thomas 2020 subject to terms of file COPYING.
+Please note this code is GNU AGPL licensed.
+
 Stage Analysis is a conceptual framework which posits all charts go through four stages. 
 Stage 1 is the basing period, stage 2 is the break-out period of rising prices, stage 3 is the topping
 period as prices turn a corner and stage 4 is a period of sustained decline as
@@ -17,12 +20,9 @@ Weinstein built his methods against a type of chart known as a Mansfield chart.
 Mansfield no longer prints charts. This code attempts to accurately redraw
 Mansfield charts in Pine Script - the charting language for TradingView.com
 
-Purchase Weinstein's only book ever written here:
-
 **`nasdaq.pine`**  
-Nasdaq 30 Week Moving Average Of The Advance Decline Ratio  
-Overlayed with a bar chart of the number of new 52 week highs or 52 week lows.  
-A bar chart below the zero lines more issues made 52 week lows and vice versa.  
+A bar chart of the difference between 52 week highs and 52 week lows on the
+Nasdaq. Overlayed with the 50day/10week moving average of the 
 ![](images/nasdaq.png)
 
 **`nyse.pine`**  
@@ -43,4 +43,14 @@ Daily
 ![](images/moving-average-daily.png)
 Weekly  
 ![](images/moving-average-weekly.png)
+:q
+i
+
+Is it subdividable?
+What type of stream resitrctions are there ifa ny, how is stream categorized?
+My stream is a trout stream, restricted significantly
+Taxes, parcel viewer, history of lot sales, fair market value of a lot comes
+down to the supply and demand situation is, and is it over the past 6 months
+
+Look up each of the other 3 and what theyre assessed, does assessed value match?
 

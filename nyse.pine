@@ -1,11 +1,8 @@
 //@version=4
 study("NYSE")
-ma_interval = timeframe.isweekly ? 10 : 50
 zeroline = plot(0, color=#FFFFFF)
-tick_interval = "W"
-period = timeframe.isweekly ? "W" : "D"
-nyse50 = sma(security("USI:ADD", period, close), ma_interval)
-nyse50PlotValue = (dayofweek == dayofweek.monday) ? nyse50 : 
+nyse50 = sma(security("USI:ADD", "D", ohlc4), 15)
+nyse50PlotValue = (dayofweek == dayofweek.monday) ? nyse50 :
  (dayofweek == dayofweek.tuesday) ? nyse50 :
  (dayofweek == dayofweek.wednesday) ? nyse50 :
  (dayofweek == dayofweek.thursday) ? nyse50 :
@@ -15,9 +12,25 @@ nyse50curve = plot(series=nyse50PlotValue, title="NYSE50", style=2, linewidth=1,
 fill(nyse50curve, zeroline, plotColor, transp=40)
 nyse_new_high = security("USI:YRHI.NY", "D", close)
 nyse_new_low = security("USI:YRLO.NY", "D", close)
-nysePlotValue = (dayofweek == dayofweek.monday) ? nyse_new_high-nyse_new_low : 
+nysePlotValue = (dayofweek == dayofweek.monday) ? nyse_new_high-nyse_new_low :
  (dayofweek == dayofweek.tuesday) ? nyse_new_high-nyse_new_low :
  (dayofweek == dayofweek.wednesday) ? nyse_new_high-nyse_new_low :
  (dayofweek == dayofweek.thursday) ? nyse_new_high-nyse_new_low :
  (dayofweek == dayofweek.friday) ? nyse_new_high-nyse_new_low : na
 plot(nysePlotValue, style=5, linewidth=1, color=#fddd13)
+
+n = bar_index, o = open, c = close
+label l = label.new(
+  x=n,
+  y=0,
+  xloc=xloc.bar_index,
+  yloc=yloc.price,
+  text="NYSE",
+  color=color.black,
+  style=label.style_label_left,
+  textcolor=color.white,
+  textalign=text.align_left)
+label.delete(l[1])
+
+
+

@@ -1,0 +1,40 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © sheldonth
+// https://www.tradingview.com/pine-script-reference/v4/?solution=43000564727#fun_financial
+//@version=4
+truncate(number, decimals) =>
+    factor = pow(10, decimals)
+    int(number * factor) / factor
+    
+study("Databox", overlay=true)
+shares = truncate(financial(syminfo.tickerid, "TOTAL_SHARES_OUTSTANDING", "FQ") / 1000000, 2)
+book = truncate(financial(syminfo.tickerid, "BOOK_VALUE_PER_SHARE", "FQ"), 2)
+cash = truncate(financial(syminfo.tickerid, "CASH_N_EQUIVALENTS", "FQ") / 1000000, 2)
+buyback = truncate(financial(syminfo.tickerid, "BUYBACK_YIELD", "FQ"), 2)
+buyback_amt = truncate(financial(syminfo.tickerid, "PURCHASE_OF_STOCK", "FQ") / 1000000, 2) * -1
+earnings_est = truncate(financial(syminfo.tickerid, "EARNINGS_ESTIMATE", "FQ"), 2)
+earnings_est_y = truncate(financial(syminfo.tickerid, "EARNINGS_ESTIMATE", "FY"), 2)
+sales_est = truncate(financial(syminfo.tickerid, "SALES_ESTIMATES", "FQ") / 1000000, 2)
+sales_est_y = truncate(financial(syminfo.tickerid, "SALES_ESTIMATES", "FY") / 1000000, 2)
+textComplete = '~~~ Financials ~~~\n' +
+  "Book:   " + '$' + tostring(book) + '\n' + 
+  "Cash:   " + '$' + tostring(cash) + 'MM' + '\n' +
+  "Shrs:     " + tostring(shares) + "MM" + "\n" +
+  "Repr:   " + "$" + tostring(buyback_amt) + "MM" + '\n' +
+  "Buyb:     "  + tostring(buyback) + '%' + "\n" +
+  "EPSQ:    $" + tostring(earnings_est) + '\n' + 
+  "EPSY:    $" + tostring(earnings_est_y) + '\n' + 
+  "RevQ:    $" + tostring(sales_est) + 'MM' + '\n' +
+  "RevY:    $" + tostring(sales_est_y) + 'MM'  
+n = bar_index, o = open, c = close
+label l = label.new(
+  x=n,
+  y=c,
+  xloc=xloc.bar_index,
+  yloc=yloc.belowbar,
+  text=textComplete,
+  color=color.black,
+  style=label.style_label_left,
+  textcolor=color.white,
+  textalign=text.align_left)
+label.delete(l[1])
